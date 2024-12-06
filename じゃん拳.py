@@ -2,14 +2,14 @@
 """じゃん拳
 """
 
-# Import the random module in the next line.
+# 次の行で random モジュールをインポートします。
 import random
-# Create count_rock, count_paper and count_scissors variables and set their initial values equal to 0.
+# count_rock、count_paper、count_scissors 変数を作成し、それらの初期値を 0 に設定します。
 count_rock = 0
 count_paper = 0
 count_scissors = 0
 
-# Create the update_counts() function.
+# update_counts() 関数を作成します。
 def update_counts(user_input):
   global count_rock, count_paper, count_scissors
   if user_input == 0:
@@ -21,7 +21,7 @@ def update_counts(user_input):
   else:
     print("0(グー), 1(パー), または 2(チョキ)を入力してください。.")
 
-# Create the predict() function.
+# predict() 関数を作成します。
 def predict():
   if count_rock > count_paper and count_rock > count_scissors:
     pred = 0
@@ -33,17 +33,17 @@ def predict():
     pred = random.randint(0, 2)
   return pred
 
-# Create the player_score and comp_score variables.
+# player_score と comp_score 変数を作成します。
 player_score = 0
 comp_score = 0
 
-# Create the update_scores() function.
+# update_scores() 関数を作成します。
 def update_scores(user_input):
   global player_score, comp_score
-  # Rock wins over scissors, scissors win over paper and paper wins over rock.
+  # グーはチョキに勝ち、チョキはパーに勝ち、パーはグーに勝ちます。
   pred = predict()
 
-  # Code for Situation 1, 2 and 3.
+  # ケース 1, 2, 3 のコード
   if user_input == 0:
     if pred == 0:
       print("\nあなたはグー、コンピュータはグーを出しました。")
@@ -53,68 +53,67 @@ def update_scores(user_input):
       comp_score += 1
       print("\nコンピュータのスコア: ", comp_score, "\nあなたのスコア: ", player_score)
     else:
-      print("\nYou played ROCK, computer played SCISSORS.")
+      print("\nあなたはグー、コンピュータはチョキを出しました。")
       player_score += 1
-      print("\nComputer Score: ", comp_score, "\nYour Score: ", player_score)
+      print("\nコンピュータのスコア: ", comp_score, "\nあなたのスコア: ", player_score)
 
-  # Code for Situation 4, 5 and 6.
+  # ケース 4, 5, 6 のコード
   elif user_input == 1:
     if pred == 1:
-      print("\nYou played PAPER, computer played PAPER.")
-      print("\nComputer Score: ", comp_score, "\nYour Score: ", player_score)
+      print("\nあなたはパー、コンピュータはパーを出しました。")
+      print("\nコンピュータのスコア: ", comp_score, "\nあなたのスコア: ", player_score)
     elif pred == 0:
-      print("\nYou played PAPER, computer played ROCK.")
+      print("\nあなたはパー、コンピュータはグーを出しました。")
       player_score += 1
-      print("\nComputer Score: ", comp_score, "\nYour Score: ", player_score)
+      print("\nコンピュータのスコア: ", comp_score, "\nあなたのスコア: ", player_score)
     else:
-      print("\nYou played PAPER, computer played SCISSORS.")
+      print("\nあなたはパー、コンピュータはチョキを出しました。")
       comp_score += 1
-      print("\nComputer Score: ", comp_score, "\nYour Score: ", player_score)
+      print("\nコンピュータのスコア: ", comp_score, "\nあなたのスコア: ", player_score)
 
   else:
-    # (Write the code for else statement to cover situation 7,8 and 9.)
+    # ケース 7, 8, 9 をカバーするための else 文のコード
     if pred == 2:
-      print("\nYou played SCISSORS, computer played SCISSORS")
-      print("\nComputer Score: ", comp_score, "\nYour Score: ", player_score)
+      print("\nあなたはチョキ、コンピュータはチョキを出しました。")
+      print("\nコンピュータのスコア: ", comp_score, "\nあなたのスコア: ", player_score)
     elif pred == 0:
-      print("\nYou played SCISSORS, computer played ROCK")
+      print("\nあなたはチョキ、コンピュータはグーを出しました。")
       comp_score += 1
-      print("\nComputer Score: ", comp_score, "\nPlayer score: ", player_score)
+      print("\nコンピュータのスコア: ", comp_score, "\nあなたのスコア: ", player_score)
     else:
-      print("\nYou played SCISSORS, computer played PAPER")
+      print("\nあなたはチョキ、コンピュータはパーを出しました。")
       player_score += 1
-      print("\nComputer score: ", comp_score, "\nYour Score: ", player_score)
+      print("\nコンピュータのスコア: ", comp_score, "\nあなたのスコア: ", player_score)
 
-# 1. Create a list: ['0', '1', '2'] and store it in the variable called valid_entries, i.e, valid_entries = ['0', '1', '2']
+# 1. リスト ['0', '1', '2'] を作成し、valid_entries という変数に格納します。例: valid_entries = ['0', '1', '2']
 valid_entries = ['0', '1', '2']
 
-# 2. Create an infinite while loop. Inside the loop, create a variable called user_input to store the input taken by the player.
+# 2. 無限ループを作成します。このループの中で、user_input という変数を作成し、プレイヤーの入力を格納します。
 while True:
-  # 3. Use the input() function to take input from a player.
-  # Inside the input() function, write the Enter 0 for ROCK, 1 for PAPER and 2 for SCISSORS: statement to show it as a message to a player.
-  user_input = input("Enter 0 for ROCK, 1 for PAPER and 2 for SCISSORS: ")
-  # 4. Write another while loop to check whether the input provided by a player exists in the valid_entries list or not.
+  # 3. input() 関数を使用してプレイヤーから入力を取得します。
+  # input() 関数内に「グーは0、パーは1、チョキは2を入力してください:」という文を記述して、プレイヤーに表示します。
+  user_input = input("グーは0、パーは1、チョキは2を入力してください: ")
+  # 4. 内部ループを作成して、プレイヤーが提供した入力が valid_entries リストに存在するかを確認します。
   while user_input not in valid_entries:
-    # 5. If the input provided by a player does not exist in the valid_entries list, then print Invalid Input! message.
-    # In the next line, rewrite the user_input = input("Enter 0 for ROCK, 1 for PAPER and 2 for SCISSORS: ") statement.
-    print("\nInvalid Input!")
-    user_input = input("Enter 0 for ROCK, 1 for PAPER and 2 for SCISSORS: ")
+    # 5. プレイヤーが提供した入力が valid_entries リストに存在しない場合、「無効な入力です！」というメッセージを表示します。
+    # 次の行で、user_input = input("グーは0、パーは1、チョキは2を入力してください: ") 文を再記述します。
+    print("\n無効な入力です！")
+    user_input = input("グーは0、パーは1、チョキは2を入力してください: ")
 
-  # 6. Now, outside the inner while loop, convert the user_input value to an integer value using the int() function.
+  # 6. 内部ループの外で、int() 関数を使用して user_input の値を整数値に変換します。
   user_input = int(user_input)
-  # 7. Call the update_scores() function with the user_input as an input to update the scores of the computer and the player.
+  # 7. update_scores() 関数を user_input を引数として呼び出し、プレイヤーとコンピュータのスコアを更新します。
   update_scores(user_input)
-  # 8. Call the update_counts() function with the user_input as an input to update the counts of the inputs provided by the player.
+  # 8. update_counts() 関数を user_input を引数として呼び出し、プレイヤーの入力をカウントします。
   update_counts(user_input)
 
-  # (write the code for Step 9)
-  # 9. Write an if statement to check if the score is 10 for any of the player.
+  # 9. if 文を記述して、どちらかのスコアが 10 に達したかを確認します。
   if player_score == 10:
-    print("Congrats, You won!")
+    print("おめでとうございます、あなたの勝ちです！")
     break
   elif comp_score == 10:
-    print("Computer Won!")
+    print("コンピュータが勝ちました！")
     break
-  # If the comp_score == 10, then print the Computer Won! message and break the loop.
-  # Else if the player_score == 10, then print the You won! message and break the loop.
+  # comp_score == 10 の場合、「コンピュータが勝ちました！」というメッセージを表示してループを終了します。
+ # player_score == 10 の場合、「おめでとうございます、あなたの勝ちです！」というメッセージを表示してループを終了します。
 
